@@ -1,0 +1,69 @@
+@import "../lib/weui.wxss";
+
+page{
+	height: 100%;
+	background: url(https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/loading_bg.png) center no-repeat;
+background-size: 752rpx 1334rpx;
+}
+.content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.content image{
+	margin-top: 250rpx;
+}
+.title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50rpx;
+}
+.title text{
+	font-size:38rpx;
+}
+.load{
+	margin-top: 600rpx;
+}
+.load .loader{
+		width: 70rpx;
+    height: 70rpx;
+		border-radius: 50%;
+		margin: 0 auto;
+    position: relative;
+    border-top: 6rpx solid #ffaeae;
+    border-right: 6rpx solid #ff3b3b;
+    border-bottom: 6rpx solid #ff3b3b;
+    border-left: 6rpx solid #ff3b3b;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: loading 1.1s infinite linear;
+    animation: loading 1.1s infinite linear;
+}
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

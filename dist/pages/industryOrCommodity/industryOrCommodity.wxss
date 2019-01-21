@@ -1,0 +1,187 @@
+@import '../lib/iconfont.wxss';
+
+page {
+  height: 100%;
+}
+
+.top {
+  position: fixed;
+  width: 750rpx;
+  height: 220rpx;
+  background: #f1f1f1;
+  z-index: 99;
+}
+
+.content {
+  position: absolute;
+  width: 750rpx;
+  top: 220rpx;
+  z-index: 98;
+}
+
+.back-position {
+  margin: 40rpx 0 4rpx 18rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+}
+
+.back {
+  font-size: 38rpx;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: left;
+}
+
+.swiper-tab-item {
+  width: 256rpx;
+  color: #bfbfbf;
+  font-size: 34rpx;
+}
+
+.active {
+  color: black;
+  font-size: 34rpx;
+  border-bottom: 88rpx solid white;
+  border-right: 10rpx solid transparent;
+}
+
+.industry-item, .commodity-item {
+  box-sizing: border-box;
+  padding: 18rpx;
+}
+
+.page_bd {
+  width: 714rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 0 15rpx 0 rgba(234, 234, 234, 1);
+  margin-bottom: 18rpx;
+}
+
+.body_head {
+  box-sizing: border-box;
+  height: 88rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.body_head text {
+  font-size: 28rpx;
+  color: black;
+  margin-right: 10rpx;
+}
+
+.body_head .shu {
+  font-size: 28rpx;
+  color: #b2b2b2;
+}
+
+.xia {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 30rpx;
+}
+
+.search-box {
+  width: 714rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 15rpx 0 rgba(234, 234, 234, 1);
+  box-sizing: border-box;
+  padding: 0 14rpx 0 28rpx;
+}
+
+.search-icon {
+  font-size: 34rpx;
+}
+
+.search {
+  width: 560rpx;
+  height: 88rpx;
+  font-size: 28rpx;
+  margin: 0 14rpx;
+}
+
+.placeholder-class {
+  font-size: 28rpx;
+  color: #888;
+}
+
+.clear {
+  font-size: 28rpx;
+}
+
+.tip-box {
+  width: 714rpx;
+  height: 66rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tip {
+  font-size: 22rpx;
+  color: #888;
+}
+
+.cantThinkOf {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  border-bottom: 2rpx solid #fafafa;
+  width: 714rpx;
+  height: 88rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.commodityName {
+  font-size: 28rpx;
+  color: black;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.commodityDescription {
+  font-size: 22rpx;
+  color: #888;
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.display_show {
+  display: block;
+  border-top: 1px solid;
+  border-color: #fafafa;
+  height: 88rpx;
+  font-size: 28rpx;
+  color: #bfbfbf;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  line-height: 88rpx;
+}
+
+.display_none {
+  display: none;
+}
+
+.xuanzhong {
+  color: white;
+  background: linear-gradient(to right, #ff8e8e 400rpx, #ff0018 800rpx);
+}

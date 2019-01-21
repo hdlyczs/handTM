@@ -1,0 +1,46 @@
+<view>
+  <view class='top'>
+    <image class='bg' src='https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/intClsDetail_topBG.jpg'></image>
+    <view class='back-position'>
+      <text class="iconfont icon-houtui back" bindtap='back'></text>
+    </view>
+    <view class='description'>
+      <view class='intCls'>
+        <view class='icon'>{{intClsNum}}</view>
+        <view class='intCls_num'>第{{intClsNum}}类</view>
+        <view class='intCls_name'>{{intClsName}}</view>
+      </view>
+      <view wx:if="{{relationType==1}}" class='introduction'>你选择的商品或服务所在的群组，即为核心群组。注册此群组，即可有效保护你像注册的商标名称。</view>
+			<view wx:if="{{relationType==2}}" class='introduction'>你选择的商品或服务所在的群组，即为重要群组。注册此群组，即可有效保护你像注册的商标名称。</view>
+			<view wx:if="{{relationType==3}}" class='introduction'>你选择的商品或服务所在的群组，即为关联群组。注册此群组，即可有效保护你像注册的商标名称。</view>
+			<view wx:if="{{relationType==4}}" class='introduction'>你选择的商品或服务所在的群组，即为其他群组。注册此群组，即可有效保护你像注册的商标名称。</view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='groupName-box'>
+      <text wx:if="{{relationType==1}}" class='groupName'>核心群组</text>
+			<text wx:if="{{relationType==2}}" class='groupName'>重要群组</text>
+			<text wx:if="{{relationType==3}}" class='groupName'>关联群组</text>
+			<text wx:if="{{relationType==4}}" class='groupName'>其他群组</text>
+    </view>
+		<view wx:for='{{list}}' wx:for-item='item' wx:for-index="idx" class="display_show" bindtap='toDetail' data-tmId='{{item.tmId}}'>
+			<view class='left'>
+				<view class='leftUp'>
+					<view class='similarFlag' wx:if='{{item.similarFlag==3}}' style='background:#ff6363;'>完全相同</view>
+					<view class='similarFlag' wx:if='{{item.similarFlag==2}}' style='background:#ffa563;'>比较近似</view>
+					<view class='tmName'>{{item.tmName}}</view>
+				</view>
+				<view class='leftDown'>{{item.holder}}</view>
+			</view>
+			<view class='right'>
+				<view class='rightUp'>
+					<view wx:if="{{item.tmStatus=='0'}}" class='tmStatus'>未公告</view>
+					<view wx:if="{{item.tmStatus=='1'}}" class='tmStatus'>已初审</view>
+					<view wx:if="{{item.tmStatus=='2'}}" class='tmStatus'>已注册</view>
+					<view wx:if="{{item.tmStatus=='3'}}" class='tmStatus'>已无效</view>
+				</view>
+				<view class='rightDown'>{{item.tmRegNo}}</view>
+			</view>
+		</view>
+  </view>
+</view>

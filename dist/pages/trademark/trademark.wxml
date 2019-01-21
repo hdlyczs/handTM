@@ -1,0 +1,65 @@
+<view class="title-bar">
+  <view class="search-box">
+    <view class="search">
+      <text class="iconfont icon-fangdajing"style="font-size:25rpx;color:#bdbdbd"></text>
+      <input class="search-text" bindinput='getValue' value='' bindconfirm='search' placeholder="请输入想要查找的商标名称" />
+    </view>
+    <view class="search-scan" bindtap='search'>搜索</view>
+  </view>
+  <view class="top-tab">
+    <view class="top-tab-item {{currentTopItem==idx ? 'active' : ''}}" wx:for="{{topTabItems}}" wx:for-index="idx" data-idx="{{idx}}" bindtap="switchTab">
+      <image class="logoimg" src="{{item.img}}" mode="aspectFit"></image>
+      <text class="logotext">{{item.name}}({{item.num}})</text>
+    </view>
+  </view>
+</view>
+<swiper class="swiper" current="{{currentTopItem}}" bindchange="bindChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+  <swiper-item style="height: 100%;" >
+    <scroll-view scroll-y class="content" style="{{('height:' + (scrollHeight + 'rpx') + ';')}}" bindscrolltolower="scrolltolower">
+      <view class="content-item" wx:for="{{all}}" wx:for-item="item" data-tmid='{{item.tmId}}' bindtap="toTmDetail">
+        <view class="tmName">【{{item.tmName}}】</view>
+        <view class="intCls">{{item.intCls}}类</view>
+        <view class="regNo">{{item.regNo}}</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item style="height: 100%;" >
+    <scroll-view scroll-y class="content" style="{{('height:' + (scrollHeight + 'rpx') + ';')}}" bindscrolltolower="scrolltolower">
+      <view class="content-item" wx:for="{{apply}}" wx:for-item="item" data-tmid='{{item.tmId}}' bindtap="toTmDetail">
+        <view class="tmName">【{{item.tmName}}】</view>
+        <view class="intCls">{{item.intCls}}类</view>
+        <view class="regNo">{{item.regNo}}</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item style="height: 100%;">
+    <scroll-view scroll-y class="content" style="{{('height:' + (scrollHeight + 'rpx') + ';')}}" bindscrolltolower="scrolltolower">
+      <view class="content-item" wx:for="{{register}}" wx:for-item="item" data-tmid='{{item.tmId}}' bindtap="toTmDetail">
+        <view class="tmName">【{{item.tmName}}】</view>
+        <view class="intCls">{{item.intCls}}类</view>
+        <view class="regNo">{{item.regNo}}</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item style="height: 100%;">
+    <scroll-view scroll-y class="content" style="{{('height:' + (scrollHeight + 'rpx') + ';')}}" bindscrolltolower="scrolltolower">
+      <view class="content-item" wx:for="{{invalid}}" wx:for-item="item" data-tmid='{{item.tmId}}' bindtap="toTmDetail">
+        <view class="tmName">【{{item.tmName}}】</view>
+        <view class="intCls">{{item.intCls}}类</view>
+        <view class="regNo">{{item.regNo}}</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item style="height: 100%;">
+    <scroll-view scroll-y class="content" style="{{('height:' + (scrollHeight + 'rpx') + ';')}}" bindscrolltolower="scrolltolower2">
+      <view class="content-item" wx:for="{{threeYear}}" wx:for-item="item" data-tmid='{{item.tmId}}' bindtap="toTmDetail">
+        <view class="tmName">【{{item.tmName}}】</view>
+        <view class="intCls">{{item.intCls}}类</view>
+        <view class="regNo">{{item.regNo}}</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<!-- <view class="add-bottom">
+  <image src="../../images/add.png" class="img-bottom"></image>
+</view> -->

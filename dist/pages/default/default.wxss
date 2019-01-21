@@ -1,0 +1,8 @@
+@import "../template/template.wxss";
+
+page{
+	height: 100%;
+}
+.test{
+	width: 750rpx;
+}

@@ -1,0 +1,179 @@
+<import src="/components/top.vue.wxml" />
+<import src="/pages/loading/loading.wxml" />
+	<template is="loading" data="{{isShow}}"></template>
+  <view style="background:#F1F1F1;overflow:hidden;" class="_div data-v-99e6b89c" wx:if="{{!isShow}}">
+    <view class="_div data-v-99e6b89c wrap" bindtap="closeMorebox" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+      <template data="{{...$root[$kk+'0'], $root}}" is="7713f9ce"></template>
+			<block wx:if="{{searchResult==1}}">
+				<view class="_div data-v-99e6b89c tipTitle">推荐注册!
+					<label class="_span data-v-99e6b89c">\(≧▽≦)/</label>
+				</view>
+				<label class="_span data-v-99e6b89c tip">建议立即注册该商标名称</label>
+			</block>
+			<block wx:if="{{searchResult==2}}">
+				<view class="_div data-v-99e6b89c tipTitle">可尝试注册!
+					<label class="_span data-v-99e6b89c">(｡ì _ í｡)</label>
+				</view>
+				<label class="_span data-v-99e6b89c tip">该商标名称可尝试注册</label>
+			</block>
+			<block wx:if="{{searchResult==3}}">
+				<view class="_div data-v-99e6b89c tipTitle">不推荐注册!
+					<label class="_span data-v-99e6b89c">（−＿−；）</label>
+				</view>
+				<label class="_span data-v-99e6b89c tip">该商标名称注册风险很高</label>
+			</block>
+      
+      <view class="_div data-v-99e6b89c tmName-box">
+        <label class="_span data-v-99e6b89c tmName">商标名称</label>
+        <label class="_span data-v-99e6b89c classifyName">/群组名称</label>
+        <label class="_span data-v-99e6b89c iconfont" bindtap='back'></label>
+      </view>
+      <view class="_div data-v-99e6b89c result-box">
+        <view class="_div data-v-99e6b89c Yaxis">
+          <label class="_span data-v-99e6b89c">注册风险高</label>
+          <label class="_span data-v-99e6b89c">注册风险中</label>
+          <label class="_span data-v-99e6b89c">注册风险低</label>
+        </view>
+        <view class="_div data-v-99e6b89c result-main">
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{coreList}}" wx:if="{{item.submitRisk==3}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{importantList}}" wx:if="{{item.submitRisk==3}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{relativeList}}" wx:if="{{item.submitRisk==3}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{coreList}}" wx:if="{{item.submitRisk==2}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{importantList}}" wx:if="{{item.submitRisk==2}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{relativeList}}" wx:if="{{item.submitRisk==2}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{coreList}}" wx:if="{{item.submitRisk==1}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{importantList}}" wx:if="{{item.submitRisk==1}}">{{item.trademarkClassify.code}}</view>
+					</view>
+					<view class='result-main-box'>
+						<view class='intcls-box' wx:for="{{relativeList}}" wx:if="{{item.submitRisk==1}}">{{item.trademarkClassify.code}}</view>
+					</view>
+				</view>
+      </view>
+      <view class="_div data-v-99e6b89c Xaxis">
+        <label class="_span data-v-99e6b89c X-core">核心类别</label>
+        <label class="_span data-v-99e6b89c X-important">重要类别</label>
+        <label class="_span data-v-99e6b89c X-relative">关联类别</label>
+      </view>
+      <view class="_div data-v-99e6b89c classify-box">
+        <view class="_div data-v-99e6b89c coreClassify classify" bindtap="coreClick"  data-eventid="{{'0'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-99e6b89c navTitle" >
+            <label class="_span data-v-99e6b89c">核心类别</label>
+						<block wx:if="{{coreList.length==0}}">
+							<label class="_span data-v-99e6b89c tips">没有近似类别
+								<label class="_span data-v-99e6b89c iconfont"></label>
+							</label>
+						</block>
+						<block wx:if="{{coreList.length>0}}">
+							<label class="_span data-v-99e6b89c tips">{{coreList.length}}个类别
+								<label class="_span data-v-99e6b89c iconfont"></label>
+							</label>
+						</block>
+          </view>
+          <view class="_ul data-v-99e6b89c {{[core ? 'showCore' : '']}}">
+            <view wx:for="{{coreList}}" wx:for-index="index"  class="_li data-v-99e6b89c" data-intcls='{{item.trademarkClassify.code}}' data-relationtype='1' bindtap='toIntcls'>
+              <label class="_span data-v-99e6b89c">第{{item.trademarkClassify.code}}类 {{item.trademarkClassify.name}}</label>
+              <label class="_span data-v-99e6b89c tips">{{item.trademarkList.length}}个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-99e6b89c importantClassify classify" bindtap="importantClick" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-99e6b89c navTitle">
+            <label class="_span data-v-99e6b89c">重要类别</label>
+						<block wx:if="{{importantList.length==0}}">
+							<label class="_span data-v-99e6b89c tips">没有近似类别
+								<label class="_span data-v-99e6b89c iconfont"></label>
+							</label>
+						</block>
+						<block wx:if="{{importantList.length>0}}">
+							<label class="_span data-v-99e6b89c tips">{{importantList.length}}个类别
+								<label class="_span data-v-99e6b89c iconfont"></label>
+							</label>
+						</block>
+          </view>
+          <view class="_ul data-v-99e6b89c {{[important ? 'showImportant' : '']}}">
+            <view class="_li data-v-99e6b89c" wx:for="{{importantList}}" wx:for-index="index" data-intcls='{{item.trademarkClassify.code}}' data-relationtype='2' bindtap='toIntcls'>
+              <label class="_span data-v-99e6b89c">第{{item.trademarkClassify.code}}类 {{item.trademarkClassify.name}}</label>
+              <label class="_span data-v-99e6b89c tips">{{item.trademarkList.length}}个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-99e6b89c relativeClassify classify" bindtap="relativeClick" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-99e6b89c navTitle">
+            <label class="_span data-v-99e6b89c">关联类别</label>
+						<block wx:if="{{relativeList.length==0}}">
+							<label class="_span data-v-99e6b89c tips">没有近似类别
+								<label class="_span data-v-99e6b89c iconfont"></label>
+							</label>
+						</block>
+						<block wx:if="{{relativeList.length>0}}">
+							<label class="_span data-v-99e6b89c tips">{{relativeList.length}}个类别
+								<label class="_span data-v-99e6b89c iconfont"></label>
+							</label>
+						</block>
+          </view>
+          <view class="_ul data-v-99e6b89c {{[relative ? 'showRelative' : '']}}">
+            <view class="_li data-v-99e6b89c" wx:for="{{relativeList}}" wx:for-index="index" data-intcls='{{item.trademarkClassify.code}}' data-relationtype='3' bindtap='toIntcls'>
+              <label class="_span data-v-99e6b89c">第{{item.trademarkClassify.code}}类 {{item.trademarkClassify.name}}</label>
+              <label class="_span data-v-99e6b89c tips">{{item.trademarkList.length}}个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+          </view>
+        </view>
+				<view class="_div data-v-99e6b89c qitaClassify classify" wx:if="{{qitaList.length>0}}" bindtap="qitaClick" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-99e6b89c navTitle">
+            <label class="_span data-v-99e6b89c">其他类别</label>
+						<label class="_span data-v-99e6b89c tips">{{qitaList.length}}个其他类别
+							<label class="_span data-v-99e6b89c iconfont"></label>
+						</label>
+          </view>
+          <view class="_ul data-v-99e6b89c {{[qita ? 'showQita' : '']}}">
+            <view class="_li data-v-99e6b89c" wx:for="{{qitaList}}" wx:for-index="index" data-intcls='{{item.trademarkClassify.code}}'  data-relationtype='4' bindtap='toIntcls'>
+              <label class="_span data-v-99e6b89c">第{{item.trademarkClassify.code}}类 {{item.trademarkClassify.name}}</label>
+              <label class="_span data-v-99e6b89c tips">{{item.trademarkList.length}}个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-99e6b89c more-classify" bindtap="showMorebox" data-eventid="{{'4'}}" data-comkey="{{$k}}">查询其他{{45-coreList.length-importantList.length-relativeList.length-qitaList.length}}个类别</view>
+    <view class="_div data-v-99e6b89c more-box" style=" {{('height:' + (moreBoxHeight + 'rpx') + ';')}}">
+      <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-99e6b89c classifyList">
+        <label class="_span data-v-99e6b89c fontTip">选择您想查询的其他类别</label>
+        <view class="_li data-v-99e6b89c qita">
+					<view class='qita-box' wx:for="{{displayList}}" wx:for-index="index" data-idx='{{index}}' bindtap='selectQita'>
+						<view class="qita-box-code {{item.selected?'qita-box-code-selected':''}}">{{item.code}}</view>
+						<view class='qita-box-name'>{{item.name}}</view>
+					</view>
+				</view>
+      </scroll-view>
+      <view class="_div data-v-99e6b89c bottom-box">
+        <view class="_div data-v-99e6b89c" bindtap='allcheck'>
+          <label class="_span data-v-99e6b89c allcheck {{allcheck?'allcheckActive':''}}"></label>
+          <label class="_span data-v-99e6b89c count">全选</label>
+        </view>
+        <view class="_div data-v-99e6b89c confirm" bindtap='qitaConfirm'>选好了</view>
+      </view>
+    </view>
+  </view>

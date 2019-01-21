@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="content">
+	<view class='top'>
+		<text class="iconfont icon-houtui back" bindtap='back'></text>
+		<text class='title'>{{title}}</text>
+	</view>
+	<view class='rectangle'>
+		<view class="userinfo">
+			<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+			<block wx:else>
+				<image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+				<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+			</block>
+		</view>
+	</view>
+	<view class='toBind' bindtap='toBind'>
+		<text class="iconfont icon-shenfen" style='color:#194769;font-size:40rpx;'></text>
+		<text class='text-style'>账号绑定</text>
+	</view>
+</view>

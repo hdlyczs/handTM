@@ -1,0 +1,28 @@
+<import src="/components/top.vue.wxml" />
+<template name="1efb328a">
+  <view class="_div data-v-72020535 wrap">
+    <template data="{{...$root[$kk+'0'], $root}}" is="7713f9ce"></template>
+    <view class="_div data-v-72020535 title">查询历史记录</view>
+    <view class="_div data-v-72020535 edit clearfix" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{text}}</view>
+    <view class="_div data-v-72020535 clear"></view>
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-72020535 historyList" style=" {{('height:' + (height + 'rpx') + ';')}}">
+      <view wx:key="index" key="{{index}}" hidden="{{!(!removeList[index].selected)}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" class="_li data-v-72020535 {{[isEdit ? 'active' : '']}}">
+        <label class="_span data-v-72020535 check" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}"></label>
+        <label class="_span data-v-72020535 check checked" bindtap="handleProxy" hidden="{{!(checkedList[index].selected)}}" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}"></label>
+        <view class="_p data-v-72020535 tmName">商标名称
+          <label class="_span data-v-72020535">/美容霜</label>
+        </view>
+        <label class="_span data-v-72020535 text">商标注册！建议立即注册该商标</label>
+        <label class="_span data-v-72020535 time">2018-09-11 15:27:08</label>
+      </view>
+      <label class="_span data-v-72020535 noMsg" wx:if="{{noMsg}}">没有记录哦！（−＿−；）</label>
+    </scroll-view>
+    <view class="_div data-v-72020535 bottom-box {{[isEdit ? 'bottomActive' : '']}}">
+      <view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_div data-v-72020535">
+        <label class="_span data-v-72020535 allcheck {{[allcheck ? 'allcheckActive' : '']}}"></label>
+        <label class="_span data-v-72020535 count">全选</label>
+      </view>
+      <view class="_div data-v-72020535 del" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">删除</view>
+    </view>
+  </view>
+</template>

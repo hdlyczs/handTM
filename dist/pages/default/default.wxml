@@ -1,0 +1,5 @@
+<import src="../template/template.wxml"/>
+<view class='test' style='height:{{height}}'></view>
+<view style='height:{{aheight}}'>
+	<template is="default" data="{{...item}}"></template>	
+</view>

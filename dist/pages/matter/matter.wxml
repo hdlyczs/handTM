@@ -1,0 +1,49 @@
+<view class="title-bar">
+  <view class="bar-item {{currentTopItem==idx ? 'active' : ''}}" wx:for="{{topTabItems}}" wx:for-index="idx" data-idx="{{idx}}" bindtap="switchTab">
+    <text class="bar-text">{{item.name}}</text>
+  </view>
+</view>
+<swiper class="swiper" current="{{currentTopItem}}" bindchange="bindChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+  <swiper-item style="height: 100%;">
+    <scroll-view scroll-y class="content-item">
+      <view class="progress" wx:for="{{progress}}" wx:for-item="items">
+        <view class="month">
+          <text class="iconfont icon-shijian" style="font-size:40rpx;color:#e50011"></text>
+          <view class="month-title">{{items.month}}</view>
+        </view>
+        <view class="details" wx:for="{{items.detail}}"  wx:for-item="item">
+          <view class="detail" bindtap='toTmDetail' data-tmid='{{item.tmId}}'>
+            <view class="content-img">
+              <image class="tmImg" src="{{item.img}}"></image>
+            </view>
+            <view class="detail-mid">
+              <text class="tmName">【{{item.tmName}}】</text>
+              <text class="accept">{{item.businessName}}</text>
+              <text class="intCls" decode="{{true}}">·&nbsp;{{item.regNo}}&nbsp;&nbsp;&nbsp;·&nbsp;{{item.intCls}}类&nbsp;&nbsp;&nbsp;·{{item.date}}</text>
+            </view>
+            <text class="iconfont icon-qianjinxiayige" style="font-size:26rpx;color:#d6d6d9"></text>
+          </view>
+          <view class="result">{{item.content}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item style="height: 100%;">
+    <scroll-view scroll-y class="content-item">
+      <view class="content" wx:for="{{wait}}" wx:for-item="item" bindtap='toTmDetail'>
+        <view class="content-img">
+          <image class="tmImg" src="{{item.img}}"></image>
+        </view>
+        <view class="tmDetail">
+          <text class="tmName">【{{item.tmName}}】</text>
+          <text class="register">注册申请：是否驳回申请</text>
+          <text class="regNo" decode="{{true}}">·&nbsp;{{item.regNo}}&nbsp;&nbsp;&nbsp;·&nbsp;{{item.intCls}}类</text>
+        </view>
+        <view class="date">{{item.date}}</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<!-- <view class="add-bottom">
+  <image src="../../images/add.png" class="img-bottom"></image>
+</view> -->

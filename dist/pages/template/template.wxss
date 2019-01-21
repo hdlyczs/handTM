@@ -1,0 +1,49 @@
+
+.full{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.add-detail-bg{
+	background-color: rgba(255,255,255,0.9);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.add-detail-module{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.add-detail-icon{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.kefu{
+	font-size:100rpx !important; 
+}
+.fenxiang{
+	font-size:110rpx !important; 
+	width: 102rpx;
+	height: 158rpx;
+}
+.ziti{
+	font-size: 28rpx;
+}
+
+.cha{
+	position: absolute;
+	bottom: 100rpx;
+}

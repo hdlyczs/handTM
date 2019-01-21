@@ -1,0 +1,81 @@
+<!-- 弹出框 -->
+<!-- <view hidden="{{flag}}" class='layer-out'  style="background:rgba(0,0,0,{{number}})">
+<view class="layer">
+    <view class="top">请关联一个主体</view>
+    <view class="search">
+      <text class="iconfont icon-fangdajing"style="font-size:40rpx;color:#888888"></text>
+      <view class="input">输入公司或个人名称</view>
+    </view>
+    <view class="bottom">搜索并关联主体，开启商标管理</view>
+</view>
+</view> -->
+<view>
+  <view class="title-bar">
+    <text class="iconfont icon-houtui back" bindtap='back'></text>
+    <view class="title-content" bindtap='toBody'>
+      <text class="iconfont icon-shichangzhutifazhanzongtiqingkuang"style="font-size:34rpx;color:white"></text>
+      <view class="title-name">{{holder}}</view>
+      <text class="iconfont icon-tubiaozhizuo-"style="font-size:22rpx;color:white"></text>
+    </view>
+  </view>
+  <view class="fix-left"></view>
+  <view class="fix-right"></view>
+  <scroll-view scroll-y class="mainbody">
+    <view class="main-top">
+      <view class="main-left" bindtap='toTrademark' data-currentId='1'>
+        <text class="iconfont icon-shenqingzhong" style="font-size:66rpx;color:#e50011"></text>
+        <view class="apply-word">
+          <view class="applyText">申请中</view>
+          <view class="applyNum">{{applicantCount}}</view>
+        </view>
+      </view>
+      <view class="grad"></view>
+      <view class="main-left" bindtap='toTrademark' data-currentId='2'>
+        <text class="iconfont icon-dui"style="font-size:66rpx;color:#e50011"></text>
+        <view class="apply-word">
+          <view class="applyText">已注册</view>
+          <view class="applyNum">{{regCount}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="main-mid">
+      <view class="main-mid-title">待办事项</view>
+      <view class="main-mid-content">
+        <view class="main-mid-item" bindtap='toMatter' data-currentId='1'>
+          <text class="iconfont icon-jinjizhuangtai"style="font-size:66rpx;color:#fa5566"></text>
+          <view class="item-name">紧急待办</view>
+          <view class="item-num">0</view>
+        </view>
+        <view class="main-mid-item" bindtap='toMatter' data-currentId='1'>
+          <text class="iconfont icon-shandian"style="font-size:66rpx;color:#1890ff"></text>
+          <view class="item-name">隐患风险</view>
+          <view class="item-num">0</view>
+        </view>
+        <view class="main-mid-item" bindtap='toTrademark' data-currentId='3'>
+          <text class="iconfont icon-gantanhao_icon"style="font-size:66rpx;color:#ffd683"></text>
+          <view class="item-name">满三年</view>
+          <view class="item-num">{{threeYearCount}}</view>
+        </view>
+        <view class="main-mid-item" bindtap='toTrademark' data-currentId='4'>
+          <text class="iconfont icon-wuxiao"style="font-size:66rpx;color:#1afa29"></text>
+          <view class="item-name">已无效</view>
+          <view class="item-num">{{failCount}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="main-bottom">
+      <view class="main-bottom-title">
+        <view class="bottom-name">最新进展</view>
+        <text class="iconfont icon-qianjinxiayige"style="font-size:26rpx;color:#c7c7cc" bindtap='toMatter' data-currentId='0'></text>
+      </view>
+      <view class="progress" wx:for="{{progress}}" wx:for-item="item" bindtap='toMatter' data-currentId='0'>
+        <view class="progress-top">
+          <view class="progress-tmName">【{{item.tmName}}】</view>
+          <view class="progress-businessName">{{item.businessName}}</view>
+          <view class="progress-date">{{item.date}}</view>
+        </view>
+        <view class="progress-content">{{item.content}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

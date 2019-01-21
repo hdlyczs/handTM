@@ -1,0 +1,12 @@
+<view class='top'>
+	<text class="iconfont icon-houtui back" bindtap='back'></text>
+	<text class='title'>{{title}}</text>
+</view>
+<view class='group'>
+	<input class='phone' type='text' placeholder='请输入手机号' placeholder-class='phone-placeholder-class' bindinput='phoneInput'></input>
+</view>
+<view class='group'>
+	<input class='code' type='text' placeholder='请输入验证码' placeholder-class='code-placeholder-class' bindinput='codeInput'></input>
+	<view class='time' bindtap='send'>{{time}}</view>
+</view>
+<button class='submit' type='primary' bindtap='submit'>绑定</button>

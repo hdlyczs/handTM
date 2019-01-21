@@ -1,16 +1,16 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
-		"es6": false,
+		"urlCheck": false,
+		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"miniprogramRoot": "dist/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
-	"projectname": "smallprogram",
+	"appid": "wx0c2d54b9af628c8a",
+	"projectname": "handTm",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,14 +29,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "123",
-					"pathName": "pages/search/main"
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }

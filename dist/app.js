@@ -1,101 +1,197 @@
 require("common/manifest.js");
 require("common/vendor.js");
-global.webpackJsonp([4],[
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+global.webpackJsonp([2],{"+YnI":function(n,t){},M93x:function(n,t,e){"use strict";var o=e("Mw+1");var a=function(n){e("OuQk")},c=e("ybqe")(o.a,null,a,null,null);t.a=c.exports},"Mw+1":function(n,t,e){"use strict";t.a={created:function(){var n=wx.getStorageSync("logs")||[];n.unshift(Date.now()),wx.setStorageSync("logs",n),console.log("app created and cache logs by setStorageSync")}}},NHnr:function(n,t,e){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var o=e("5nAL"),a=e.n(o),c=e("M93x"),u=e("+YnI"),r=(e.n(u),e("yTFs"));e.n(r);a.a.config.productionTip=!1,c.a.mpType="app",new a.a(c.a).$mount()},OuQk:function(n,t){},yTFs:function(n,t){}},["NHnr"]);
+App({
+	onLaunch: function () {
+		// 展示本地存储能力
+		var logs = wx.getStorageSync('logs') || []
+		logs.unshift(Date.now())
+		wx.setStorageSync('logs', logs)
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(5);
+		// 登录
+		wx.login({
+			success: res => {
+				// 发送 res.code 到后台换取 openId, sessionKey, unionId
+				var code = res.code;
+				//获取手机信息
+				wx.getSystemInfo({
+					success: res => {
+						// console.log(res)
+						var that = this;
+						var model = res.model;
+						var brand = res.brand;
+						var system = res.system;
+						var screenHeight = res.screenHeight;
+						var screenWidth = res.screenWidth;
+						if (model.indexOf("iPhone X") > -1) {
+							that.globalData.isIphoneX = true;
+						}
+						that.globalData.screenHeight = screenHeight;
+						that.globalData.screenWidth = screenWidth;
+						that.globalData.proportion = 750 / screenWidth;
 
+						// 获取用户信息
+						wx.getSetting({
+							success: res => {
+								// console.log(res)
+								if (res.authSetting['scope.userInfo']) {
+									// 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+									wx.getUserInfo({
+										success: res => {
+											// console.log(res)
 
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.productionTip = false;
-__WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */].mpType = 'app';
-
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */]);
-app.$mount();
-
-/***/ }),
-/* 4 */,
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(7);
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(6)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-
-/* template */
-var __vue_template__ = null
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __vue_template__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src\\App.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6385ad1c", Component.options)
-  } else {
-    hotAPI.reload("data-v-6385ad1c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+											// 可以将 res 发送给后台解码出 unionId
+											this.globalData.userInfo = res.userInfo
+											var userAvatarUrl = res.userInfo.avatarUrl;
+											var userCity = res.userInfo.city;
+											var userCountry = res.userInfo.country;
+											var userGender = res.userInfo.gender;
+											var userLanguage = res.userInfo.language;
+											var userNickName = res.userInfo.nickName;
+											var userProvince = res.userInfo.province;
 
 
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
+											wx.request({
+                        url: that.globalData.port+'user/login',
+												method: 'POST',
+												header: { 'Content-Type': 'application/json' },
+												data: {
+													"data": {
+														"brand": brand,
+														"code": code,
+														"model": model,
+														"system": system,
+														"userAvatarUrl": userAvatarUrl,
+														"userCity": userCity,
+														"userCountry": userCountry,
+														"userGender": userGender,
+														"userLanguage": userLanguage,
+														"userNickName": userNickName,
+														"userProvince": userProvince
+													},
+													"token": "string",
+													"userOid": "string"
+												},
+												success: function (r) {
+													// console.log(r)
+													that.globalData.userOid = r.data.data.userOid
+													that.globalData.token = r.data.data.token
+													// console.log(that.globalData.token, that.globalData.userOid)
+													wx.request({
+														url: that.globalData.port + 'subject/list',
+														method: 'POST',
+														header: {
+															"Content-Type": "application/json"
+														},
+														data: {
+															"data": {
 
-// removed by extract-text-webpack-plugin
+															},
+															"token": that.globalData.token,
+															"userOid": that.globalData.userOid
+														},
+														success: function (result) {
+															// console.log(result)
+															var list = result.data.data.rows;
+															list.forEach(function (item, index, array) {
+																array[index] = {
+																	oid: item.oid,
+																	isSelected: item.isSelected
+																}
+															});
+															for(var i= 0;i<list.length;i++){
+																if(list[i].isSelected==1){
+																	that.globalData.selectedSubjectOid = list[i].oid;
+																	break;
+																}
+															}
+														}
+													})
+												}
+											})
 
-/***/ }),
-/* 7 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+											// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+											// 所以此处加入 callback 以防止这种情况
+											if (this.userInfoReadyCallback) {
+												this.userInfoReadyCallback(res)
+											}
+										}
+									})
+								}
+								if (res.authSetting['scope.userInfo'] == false || res.authSetting['scope.userInfo'] == null || res.authSetting['scope.userInfo']==undefined){
+									wx.request({
+										url: that.globalData.port + 'user/login',
+										method: 'POST',
+										header: { 'Content-Type': 'application/json' },
+										data: {
+											"data": {
+												"code": code
+											},
+											"token": "string",
+											"userOid": "string"
+										},
+										success: function (r) {
+											// console.log(r)
+											that.globalData.userOid = r.data.data.userOid
+											that.globalData.token = r.data.data.token
+											// console.log(that.globalData.token, that.globalData.userOid)
+											wx.request({
+												url: that.globalData.port + 'subject/list',
+												method: 'POST',
+												header: {
+													"Content-Type": "application/json"
+												},
+												data: {
+													"data": {
 
-"use strict";
+													},
+													"token": that.globalData.token,
+													"userOid": that.globalData.userOid
+												},
+												success: function (result) {
+													// console.log(result)
+													var list = result.data.data.rows;
+													list.forEach(function (item, index, array) {
+														array[index] = {
+															oid: item.oid,
+															isSelected: item.isSelected
+														}
+													});
+													for (var i = 0; i < list.length; i++) {
+														if (list[i].isSelected == 1) {
+															that.globalData.selectedSubjectOid = list[i].oid;
+															break;
+														}
+													}
+												}
+											})
+										}
+									})
+								}
+							}
+						})
+						//获取用户信息 结束
+					}
+				})
+				//获取手机信息 结束
+			}
+		})
+	},
+	globalData: {
+    port:'https://www.handtm.com/',
+		// port:'http://192.168.18.130:8888/',
+		userOid:'',
+		token:'',
+		userInfo: null,
+		isIphoneX: false,
+		screenHeight: 667,
+		screenWidth: 375,
+		proportion: 2,
+    searchType:2,
+    searchName:'手机软件设计',
+    currentId:0,
+    currentIdx:0,
+		selectedSubjectOid:'',
+	},
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  created: function created() {
-    // 调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
-    wx.setStorageSync('logs', logs);
-
-    console.log('app created and cache logs by setStorageSync');
-  }
-});
-
-/***/ })
-],[3]);
-//# sourceMappingURL=app.js.map
+})

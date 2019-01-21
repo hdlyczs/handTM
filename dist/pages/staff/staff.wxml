@@ -1,0 +1,29 @@
+<view class='staff-container'>
+	<view class="{{isIphoneX?'top-bg-ipx':'top-bg'}}" style="height:{{isIphoneX?'248rpx':'224rpx'}} ">
+		<view class='back' bindtap='back'>
+			<image src='../images/back.png'  style='width:100%;height:100%;'></image>
+		</view>
+		<view class='search-box'>
+			<view class='search'>
+				<input class='search-input' type="text" bindconfirm='input' bindinput='input' confirm-type='search' placeholder='请输入代理人名称或擅长领域' placeholder-style='font-size:26rpx;' value='{{value}}'/>
+			</view>
+			<view class='search-btn' bindtap='search'>搜索</view>
+		</view>
+	</view>
+	<scroll-view class='content' scroll-y style='height:{{contentHeight}}rpx'>
+		<view class='staff-box' wx:for='{{items}}'>
+			<view class='staff-img'>
+				<image src='{{item.imgUrl}}' mode='aspectFill' style='width:100%;height:100%;'></image>
+			</view>
+			<view class='introduction'>
+				<view class='name'>{{item.name}}<image class='sex-icon' src="{{item.gender==1?'../images/nan-icon.png':'../images/nv-icon.png'}}" mode='' style=''></image></view>
+				<view class='position'><image class='position-icon' src='../images/position-icon.png' style=''></image>{{item.rank}}</view>
+				<view class='goodAt'><image class='goodAt-icon' src='../images/goodAt-icon.png'style=''></image>{{item.field}}</view>
+			</view>
+			<view class='grad'></view>
+			<view class='chat' bindtap='call' data-phone='{{item.telephone}}'>
+				<image src='../images/chat.png' mode='' style='width:100%;height:100%;'></image>
+			</view>
+		</view>
+	</scroll-view>
+</view>

@@ -1,0 +1,8 @@
+<view class="layer">
+  <view class="top">请关联一个主体</view>
+  <view class="search">
+    <text class="iconfont icon-fangdajing"style="font-size:40rpx;color:#888888"></text>
+    <view class="input">输入公司或个人名称</view>
+  </view>
+  <view class="bottom">搜索并关联主体，开启商标管理</view>
+</view>

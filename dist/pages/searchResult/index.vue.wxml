@@ -1,0 +1,112 @@
+<import src="/components/top.vue.wxml" />
+<template name="6eb858b2">
+  <view style="background:#F1F1F1;overflow:hidden;" class="_div data-v-99e6b89c">
+    <view class="_div data-v-99e6b89c wrap" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+      <template data="{{...$root[$kk+'0'], $root}}" is="7713f9ce"></template>
+      <view class="_div data-v-99e6b89c tipTitle">不推荐注册!
+        <label class="_span data-v-99e6b89c">（−＿−；）</label>
+      </view>
+      <label class="_span data-v-99e6b89c tip">该商标名称注册风险很高</label>
+      <view class="_div data-v-99e6b89c tmName-box">
+        <label class="_span data-v-99e6b89c tmName">商标名称</label>
+        <label class="_span data-v-99e6b89c classifyName">/群组名称</label>
+        <label class="_span data-v-99e6b89c iconfont"></label>
+      </view>
+      <view class="_div data-v-99e6b89c result-box">
+        <view class="_div data-v-99e6b89c Yaxis">
+          <label class="_span data-v-99e6b89c">注册风险高</label>
+          <label class="_span data-v-99e6b89c">注册风险中</label>
+          <label class="_span data-v-99e6b89c">注册风险低</label>
+        </view>
+        <view class="_div data-v-99e6b89c result-main"></view>
+      </view>
+      <view class="_div data-v-99e6b89c Xaxis">
+        <label class="_span data-v-99e6b89c X-core">核心类别</label>
+        <label class="_span data-v-99e6b89c X-important">重要类别</label>
+        <label class="_span data-v-99e6b89c X-relative">关联类别</label>
+      </view>
+      <view class="_div data-v-99e6b89c classify-box">
+        <view class="_div data-v-99e6b89c coreClassify classify">
+          <view class="_div data-v-99e6b89c navTitle" bindtap="handleProxy" hover-class="hover" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+            <label class="_span data-v-99e6b89c">核心类别</label>
+            <label class="_span data-v-99e6b89c tips">没有近似类别
+              <label class="_span data-v-99e6b89c iconfont"></label>
+            </label>
+          </view>
+          <view class="_ul data-v-99e6b89c {{[core ? 'showCore' : '']}}">
+            <view hover-class="hover" class="_li data-v-99e6b89c">
+              <label class="_span data-v-99e6b89c">第9类 科学技术</label>
+              <label class="_span data-v-99e6b89c tips">20个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+            <view hover-class="hover" class="_li data-v-99e6b89c">
+              <label class="_span data-v-99e6b89c">第9类 科学技术</label>
+              <label class="_span data-v-99e6b89c tips">20个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-99e6b89c importantClassify classify" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-99e6b89c navTitle">
+            <label class="_span data-v-99e6b89c">重要类别</label>
+            <label class="_span data-v-99e6b89c tips">没有近似类别
+              <label class="_span data-v-99e6b89c iconfont"></label>
+            </label>
+          </view>
+          <view class="_ul data-v-99e6b89c {{[important ? 'showImportant' : '']}}">
+            <view class="_li data-v-99e6b89c">
+              <label class="_span data-v-99e6b89c">第9类 科学技术</label>
+              <label class="_span data-v-99e6b89c tips">20个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+            <view class="_li data-v-99e6b89c">
+              <label class="_span data-v-99e6b89c">第9类 科学技术</label>
+              <label class="_span data-v-99e6b89c tips">20个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-99e6b89c relativeClassify classify" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-99e6b89c navTitle">
+            <label class="_span data-v-99e6b89c">关联类别</label>
+            <label class="_span data-v-99e6b89c tips">1个类别发现近似商标
+              <label class="_span data-v-99e6b89c iconfont"></label>
+            </label>
+          </view>
+          <view class="_ul data-v-99e6b89c {{[relative ? 'showRelative' : '']}}">
+            <view class="_li data-v-99e6b89c">
+              <label class="_span data-v-99e6b89c">第9类 科学技术</label>
+              <label class="_span data-v-99e6b89c tips">20个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+            <view class="_li data-v-99e6b89c">
+              <label class="_span data-v-99e6b89c">第9类 科学技术</label>
+              <label class="_span data-v-99e6b89c tips">20个近似商标
+                <label class="_span data-v-99e6b89c iconfont"></label>
+              </label>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-99e6b89c more-classify" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">查询其他41个类别</view>
+    <view class="_div data-v-99e6b89c more-box" style=" {{('height:' + (moreBoxHeight + 'rpx') + ';')}}">
+      <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-99e6b89c classifyList">
+        <label class="_span data-v-99e6b89c fontTip">选择您想查询的其他类别</label>
+        <view class="_li data-v-99e6b89c"></view>
+      </scroll-view>
+      <view class="_div data-v-99e6b89c bottom-box">
+        <view class="_div data-v-99e6b89c">
+          <label class="_span data-v-99e6b89c allcheck"></label>
+          <label class="_span data-v-99e6b89c count">全选 (0/X)</label>
+        </view>
+        <view class="_div data-v-99e6b89c confirm">选好了</view>
+      </view>
+    </view>
+  </view>
+</template>

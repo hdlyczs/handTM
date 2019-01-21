@@ -1,0 +1,23 @@
+<template name="default">
+  <view class="full">
+    <image class='default_image' src='{{src}}' mode='{{mode}}' style='{{style}}'></image>
+  </view>
+</template>
+
+<template name="add-detail">
+  <view class='add-detail-bg' style='display:{{display}}'>
+		<view class='add-detail-module'>
+			<view class='add-detail-icon'>							
+				<text class='iconfont icon-kefu kefu' style='color:#82a2f5'></text>
+				<text class='ziti'>联系客服</text>
+			</view>
+			<view class='add-detail-icon' style='margin-left:150rpx;'>
+				<text class='iconfont icon-fenxiang fenxiang' style='color:#f58282'></text>
+				<text class='ziti' style=''>分享页面</text>
+			</view>
+		</view>
+		<view class='cha' bindtap='hideAddDetail'>
+			<text class='iconfont icon-cha' style='color:#b2b2b2'></text>
+		</view>
+	</view>
+</template>

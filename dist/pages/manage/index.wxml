@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="title-bar"></view>
+<scroll-view scroll-y class="mainView">
+  <view class="icons" wx:for="{{icons}}" wx:for-item="icon" bindtap='changeSelected' data-subjectoid='{{icon.subjectOid}}'>
+    <view class="setion-top">
+      <text class="content iconfont icon-shichangzhutifazhanzongtiqingkuang"style="font-size:34rpx;color:#e50011"></text>
+      <view class="title">{{icon.name}}</view>
+      <view class="date">{{icon.date}}</view>
+    </view>
+    <view class="section-mid">
+      <view class="mid-address">
+        <view class="add-left">地址：</view>
+        <view class="add-right">{{icon.address}}</view>
+      </view>
+      <view class="mid-num">商标总量：{{icon.tmNum}}件</view>
+    </view>
+    <view class="corner" style="{{icon.isSelected==1?'background-color:#e50011':''}}"></view>
+  </view>
+  <view class="add-img">
+    <image src="../../images/add1.png" class="addImage" bindtap='toAddBody'></image>
+  </view>
+</scroll-view>
+<!-- <view class="add-bottom">
+  <image src="../../images/add.png" class="img-bottom"></image>
+</view> -->

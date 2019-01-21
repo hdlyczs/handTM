@@ -1,113 +1,158 @@
-require("../../common/manifest.js");
-require("../../common/vendor.js");
-global.webpackJsonp([5],{
+var time = require("../utils/index.js");
+const app = getApp();
+Page({
 
-/***/ 29:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    nowTime:'213',
+    value:'',
+		searchType:2,
+		searchOid: '',
+    tip:'选择行业或者商品'
+  },
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(38);
+  back:function(){
+    wx.navigateBack({
+      delta:1
+    })
+  },
+  getVaule:function(e){
+    var that = this ;
+    var value = e.detail.value;
+    that.setData({
+      value: value
+    })
+  },
+  search:function(){
+    var that = this;
+    var value = that.data.value;
+		if (value == '' || value == null){
+      value = '掌标'
+    }
+		if (that.data.searchOid == '') {
+			that.data.searchOid = '0901'
+			that.data.tip = '计算机软件、APP等'
+		}
+		if (that.data.searchType == 1) {
+			wx.navigateTo({
+				url: '../searchResult/main?tmName=' + value + '&industryOid=' + that.data.searchOid + '&searchName=' + that.data.tip, 
+			})
+		}
+		if(that.data.searchType==2){
+			wx.navigateTo({
+				url: '../searchResult/main?tmName=' + value + '&goodCode=' + that.data.searchOid + '&searchName=' + that.data.tip, 
+			})
+		}
+    
+		
+  },
+  toClassify:function(e){
+		var that = this;
+		var value = e.detail.value;
+		if (value == '' || value == null) {
+			value = '掌标'
+		}
+    wx.navigateTo({
+      url: '../industryOrCommodity/industryOrCommodity?tmName='+value,
+    })
+  },
+  toHistory:function(){
+    wx.navigateTo({
+      url: '../searchHistory/main',
+    })
+  },
+  
+  getTime: function () {
+    var that = this;
+    var date = new Date();
+    var nowTime = time.formatTime(date);
+    // console.log(nowTime)
+    that.setData({
+      nowTime: nowTime
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    that.getTime();
+		wx.request({
+			url: app.globalData.port + 'history/list',
+			method: 'POST',
+			header: {
+				"Content-Type": "application/json"
+			},
+			data: {
+				"data": {
+					"pageNum": 1,
+					"pageSize": 1
+				},
+				"token": app.globalData.token,
+				"userOid": app.globalData.userOid
+			},
+			success: function (res) {
+				var rows = res.data.data.rows;
+				// console.log(rows)
+				if (rows[0]!=null&&rows[0]!=''){
+					that.setData({
+						searchType: rows[0].searchType,
+						searchOid: rows[0].searchOid,
+						tip: rows[0].searchName
+					})
+				}
+			}
+		})
+  },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
+  },
 
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
+  },
 
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
-app.$mount();
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    
+  },
 
-/***/ }),
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    
+  },
 
-/***/ 38:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_78cb5335_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(41);
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(39)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
 
-/* template */
-
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_78cb5335_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src\\pages\\search\\index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-78cb5335", Component.options)
-  } else {
-    hotAPI.reload("data-v-78cb5335", Component.options)
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
   }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-
-/***/ 39:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 40:
-/***/ (function(module, exports) {
-
-//
-//
-//
-
-/***/ }),
-
-/***/ 41:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("1234")])
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-78cb5335", esExports)
-  }
-}
-
-/***/ })
-
-},[29]);
-//# sourceMappingURL=main.js.map
+})

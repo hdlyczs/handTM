@@ -1,5 +1,2 @@
 @import "../../common/vendor.wxss";
-
-._div {
-  color: red;
-}
+.wrap.data-v-78cb5335{height:100vh;background:url(https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/background.png) 50%/contain;overflow:hidden}.search-box.data-v-78cb5335{margin:0 auto;margin-top:25rpx;padding:0 12rpx;width:714rpx;height:178rpx;border-radius:10rpx;background:#fff;box-shadow:0 0 30rpx 0 #eaeaea}.search-public.data-v-78cb5335{line-height:89rpx}.icon-public.data-v-78cb5335{padding:0 20rpx;color:#000;font-size:36rpx}.keywords.data-v-78cb5335{display:flex;border-bottom:2rpx solid #e5e5e5}.keywords ._input.data-v-78cb5335{display:inline-block;height:89rpx;flex:1;font-size:34rpx}.classify.data-v-78cb5335{display:flex}.classify .tip.data-v-78cb5335{font-size:34rpx;color:#888;flex:1}.classify .toClassify.data-v-78cb5335{color:#000;font-weight:700;font-size:40rpx;margin-right:10rpx}.history.data-v-78cb5335{margin-top:35rpx;padding:0 20rpx;font-size:25rpx;color:#000;display:flex;justify-content:space-between}.history .nowTime.data-v-78cb5335{color:#e85151;padding-left:5rpx}.history .toHistory.data-v-78cb5335{font-weight:700}.confirm.data-v-78cb5335{position:absolute;bottom:0;width:750rpx;line-height:85rpx;background:url(https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/search-confirm.jpg) no-repeat;font-size:35rpx;color:#fff;text-align:center;letter-spacing:2rpx}

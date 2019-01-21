@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="content">
+	<view class='top'>
+		<text class="iconfont icon-houtui back" bindtap='back'></text>
+		<text class='title'>{{title}}</text>
+	</view>
+	<view class='body'>
+		<view class='search-box'>
+			<image class='search-icon' style='left:{{searchIconLeft}}rpx' src='https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/lm-Path.png'></image>
+			<input type='text' bindfocus='focus' bindblur='blur' bindinput='bindinput' bindconfirm='bindconfirm' placeholder='请输入主体名称' placeholder-class='placeholder-class' placeholder-style='text-align:{{placeholder}};' class='search' confirm-type='search' value='{{value}}'></input>
+			<image class='cuo-icon' bindtap='clearText' style='display:{{cuoDisplay}}' src='https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/%E9%94%99.png'></image>
+		</view>
+		<scroll-view class='body-box' style='display:{{display}}' scroll-y>
+			<view class='body-item' wx:for='{{items}}' wx:for-item='item' wx:for-index='index' data-idx='{{index}}' data-alltmcount='{{item.allTmCount}}' data-applicantcn='{{item.applicantCn}}' data-idcardno='{{item.idCardNo}}' data-validtmcount='{{item.validTmCount}}' bindtap="{{item.isBound==2?'addBody':'' }}">
+				<text class='iconfont icon-shichangzhutifazhanzongtiqingkuang shichangzhutifazhanzongtiqingkuang'></text>
+				<text class='iconfont icon-jia jia' style="{{item.isBound==2?'':'color:red;' }}"></text>
+				<view class='body-detail'>
+					<view class='body-detail-title'>{{item.applicantCn}}</view>
+					<view class='body-detail-address'>地址：{{item.bodyDetailAddress}}</view>
+					<view class='body-detail-tmNum'>商标数量：{{item.allTmCount}}件</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</view>

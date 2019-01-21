@@ -1,0 +1,32 @@
+<import src="../template/template.wxml"/>
+
+
+<view class='top'>
+	<text class="iconfont icon-houtui back" bindtap='back'></text>
+	<text class='title'>{{title}}</text>
+</view>
+<view class='content'>
+	<view class='box'>
+		<view class='left'>
+			<text class="iconfont icon-weixin" style='color:#298d35;font-size:40rpx;'></text>
+			<text class='text-style'>微信号</text>
+		</view>
+		<view class='right' style='color:#888;'>{{userInfo.nickName}}</view>
+	</view>
+	<view class='box' bindtap="{{telephone == ''?'toBind':''}}">
+		<view class='left'>
+			<text class="iconfont icon-shouji" style='color:#29618d;font-size:40rpx;'></text>
+			<text class='text-style'>手机号</text>
+		</view>
+		<view class='right'>
+			<block wx:if="{{telephone == ''}}">
+				<text class='toBind'>去绑定</text>
+				<text class="iconfont icon-bianji" style='font-size:26rpx;'></text>
+			</block>
+			<block wx:else="{{telephone != ''}}">
+				<text class='toBind'>{{telephone}}</text>
+			</block>
+		</view>
+	</view>
+</view>
+<!-- <template is="add-detail" data="{{...item}}"></template>	 -->

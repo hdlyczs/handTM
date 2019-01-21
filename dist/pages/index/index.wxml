@@ -1,0 +1,27 @@
+<view class='page-section'>
+	<view class='title'>
+		<text>掌标</text>
+	</view>
+	<view class="button-view">
+		<button class="button" bindtap="toSearch">
+			<image style="{{icon1.style}}" mode="{{icon1.mode}}" src="{{icon1.src}}"></image>
+			<text>商标查询</text>
+		</button>
+		<button class="button" bindtap="toManage">
+			<image style="{{icon2.style}}" mode="{{icon2.mode}}" src="{{icon2.src}}"></image>
+			<text>商标管理</text>
+		</button>
+	</view>
+	<image style="{{background.style}}" mode="{{background.mode}}" src="{{background.src}}"></image>
+	<view class='grzxAndkf'>
+		<view class='huanhang' bindtap='toGrzx'>
+			<image style="{{grzx.style}}" mode="{{grzx.mode}}" src="{{grzx.src}}"></image>
+			<text style='font-size:28rpx;'>个人中心</text>
+		</view>
+		<view class='huanhang'style='margin-left:184rpx;' bindtap='toKf'>
+			<image style="{{kf.style}}" mode="{{kf.mode}}" src="{{kf.src}}"></image>
+			<text style='font-size:28rpx;'>联系代理</text>
+		</view>
+	</view>
+	<text class='bigData'>掌标大数据</text>
+</view>

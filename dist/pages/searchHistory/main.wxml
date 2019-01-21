@@ -1,0 +1,29 @@
+<import src="/components/top.vue.wxml" />
+
+  <view class="_div data-v-72020535 wrap">
+    <template data="{{...$root[$kk+'0'], $root}}" is="7713f9ce"></template>
+    <view class="_div data-v-72020535 title">查询历史记录</view>
+    <view class="_div data-v-72020535 edit clearfix" bindtap="edit" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{text}}</view>
+    <view class="_div data-v-72020535 clear"></view>
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-72020535 historyList" style=" {{('height:' + (height + 'rpx') + ';')}}" bindscrolltolower="scrolltolower">
+      <view wx:key="index" key="{{index}}" hidden="{{removeList[index].selected}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" class="_li data-v-72020535 {{[isEdit ? 'active' : '']}}" bindtap="{{isEdit?'':'toResult'}}" data-searchtype="{{item.searchType}}" data-searchoid="{{item.searchOid}}" data-word='{{item.word}}' data-searchname='{{item.searchName}}'>
+        <label class="_span data-v-72020535 check" bindtap="check" data-idx="{{index}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}"></label>
+        <label class="_span data-v-72020535 check checked" bindtap="check" hidden="{{!(checkedList[index].selected)}}" data-idx="{{index}}" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}"></label>
+        <view class="_p data-v-72020535 tmName">{{item.word}}
+          <label class="_span data-v-72020535">/{{item.searchName}}</label>
+        </view>
+        <label class="_span data-v-72020535 text" wx:if="{{item.result==1}}">推荐注册！建议立即注册该商标</label>
+        <label class="_span data-v-72020535 text" wx:elif="{{item.result==2}}">可尝试注册！该商标名称可尝试注册</label>
+        <label class="_span data-v-72020535 text" wx:elif="{{item.result==3}}">不推荐注册!该商标名称注册风险很高</label>
+        <label class="_span data-v-72020535 time">{{item.searchDate}}</label>
+      </view>
+      <label class="_span data-v-72020535 noMsg" wx:if="{{noMsg}}">没有记录哦！（−＿−；）</label>
+    </scroll-view>
+    <view class="_div data-v-72020535 bottom-box {{[isEdit ? 'bottomActive' : '']}}">
+      <view bindtap="allcheckClick" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_div data-v-72020535">
+        <label class="_span data-v-72020535 allcheck {{[allcheck ? 'allcheckActive' : '']}}"></label>
+        <label class="_span data-v-72020535 count">全选</label>
+      </view>
+      <view class="_div data-v-72020535 del" bindtap="remove" data-eventid="{{'4'}}" data-comkey="{{$k}}">删除</view>
+    </view>
+  </view>

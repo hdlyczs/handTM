@@ -1,0 +1,11 @@
+<template name="loading">
+	<view class='content' wx:if="{{isShow}}">
+		<view class='title'>
+			<text style='text-indent:99999999em'></text>
+		</view>
+		<image style="width:130rpx;" mode="widthFix" src="https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/logo.png"></image>
+		<view class='load'>
+			<view class='loader'></view>
+		</view>  
+	</view>
+</template>

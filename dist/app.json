@@ -1,14 +1,67 @@
 {
   "pages": [
-    "pages/index/main",
+		"pages/enterPhone/enterPhone",
+		"pages/index/index",
+		"pages/search/main",
+		"pages/searchResult/main",
+		"pages/all/all",
+		"pages/matter/matter",
+		"pages/trademark/trademark",
+		"pages/intClsDetail/intClsDetail",
+		"pages/trademark/tmSearchDetail",
+		"pages/trademark/tmDetail",
+		"pages/manage/index",
+		"pages/addBody/addBody",
+		"pages/industryOrCommodity/industryOrCommodity",
+    "pages/searchHistory/main",
+    "pages/staff/staff",
+		"pages/personCenter/personCenter",
+		"pages/bindOnAccount/bindOnAccount",
+		
+    
     "pages/logs/main",
     "pages/counter/main",
-    "pages/search/main"
+    "pages/loading/loading",
+    "pages/default/default",
+    "pages/all/link"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+		"navigationStyle":"custom"
+  },
+  "tabBar": {
+    "color": "#847e81",
+    "selectedColor": "#ff4141",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/all/all",
+        "text": "概览",
+        "iconPath": "images/gailan.png",
+        "selectedIconPath": "images/gailan1.png"
+      },
+      {
+        "pagePath": "pages/trademark/trademark",
+        "text": "商标",
+        "iconPath": "images/trademark.png",
+        "selectedIconPath": "images/trademark1.png"
+      },
+      {
+        "pagePath": "pages/matter/matter",
+        "text": "事项",
+        "iconPath": "images/shixiang.png",
+        "selectedIconPath": "images/shixiang1.png"
+      },
+      {
+        "pagePath": "pages/manage/index",
+        "text": "管理主体",
+        "iconPath": "images/renyuan.png",
+        "selectedIconPath": "images/renyuan1.png"
+      }
+    ]
   }
 }

@@ -1,0 +1,50 @@
+<import src="../template/template.wxml" />
+<view>
+  <view class='top'>
+    <view class='back-position'>
+      <text class="iconfont icon-houtui back" bindtap='back'></text>
+    </view>
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">行业</view>
+      <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">商品</view>
+    </view>
+  </view>
+  <view class='content'>
+    <swiper current="{{currentTab}}" duration="300" circular='true' bindchange="swiperTab" style='height:{{swiperHeight}}rpx'>
+      <swiper-item class='industry-item' style='height:auot !important'>
+        <view wx:for='{{lists}}' wx:for-item='list' wx:for-index="index" class="page_bd">
+          <view class="body_head" bindtap="showitem" data-index='{{index}}'>
+            <text>{{list.name}}</text>
+            <text class='shu'>|</text>
+            <text>{{list.introduce}}</text>
+            <text class="iconfont icon-houtui xia"></text>
+          </view>
+					<view class='item-box'>
+						<view wx:for='{{list.childIndustry}}' wx:for-item='item' wx:for-index="idx" class="{{open[index].key?'display_show':'display_none'}} {{currentItem==(index+'_'+idx)?'xuanzhong':''}}" bindtouchstart="xuanzhong" bindtap='toSearch' data-id='{{index}}_{{idx}}' data-ioid='{{item.oid}}' data-searchname='{{item.name}}'>{{item.name}}</view>
+					</view>
+        </view>
+      </swiper-item>
+      <swiper-item class='commodity-item'>
+        <view class='commodity'>
+          <view class='search-box'>
+            <text class='iconfont icon-fangdajing search-icon'></text>
+            <input class='search' placeholder='请输入您提供的商品或服务，如“美容”' placeholder-class='placeholder-class' bindinput='search'  value='{{value}}'></input>
+            <text class='iconfont icon-cha clear' bindtap='clearText' style='display:{{cuoDisplay}}'></text>
+          </view>
+          <!-- <block wx:if=''> -->
+          <view class='tip-box'>
+            <view class='tip'>为你找到前{{tipNum}}个相关的商品/服务，选择一个最接近的即可</view>
+          </view>
+          <view wx:for='{{commodity_list}}' bindtouchstart='xuanzhong_2' class="cantThinkOf {{currentCommodity==c_idx?'xuanzhong':''}}" wx:for-index='c_idx' data-idx='{{c_idx}}' bindtap='toSearch2' data-goodcode='{{item.pcode}}' data-searchname2='{{item.name}}'>
+            <view class='commodityName' style="color:{{currentCommodity==c_idx?'white':''}}">{{item.name}}</view>
+            <view class='commodityDescription' style="color:{{currentCommodity==c_idx?'white':''}}">{{item.pname}}</view>
+          </view>
+          <!-- </block> -->
+          <!-- <block wx:else=''>
+							<template is="default" data=''/>
+						</block> -->
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

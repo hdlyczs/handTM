@@ -1,4 +1,1 @@
-
-.card {
-  padding: 20rpx;
-}
+.card{padding:20rpx}.lyc_title{position:fixd;margin-top:40rpx;padding-left:18rpx;width:750rpx;height:85rpx}.lyc_title .back{display:block;height:100%;line-height:85rpx;color:#fff;font-size:44rpx;font-weight:700;padding-top:10rpx}

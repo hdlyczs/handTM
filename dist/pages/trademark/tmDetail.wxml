@@ -1,0 +1,146 @@
+<view class="topback" bindtap="goback">
+  <text class="iconfont icon-houtui goBack"style="font-size:38rpx;color:white"></text>
+</view>
+
+<view class="mainView">
+  <view class="top">
+    <!-- <text class="tmName">海贼王</text> -->
+		<image src='{{trademarkInfo.imgUrl}}' class='tmImg'></image>
+  </view>
+  <view class="name">{{trademarkInfo.tmName}}</view>
+  <view class="tmDetail">
+    <view class="detail-item">
+      <text class="change">{{trademarkInfo.regNo}}</text>
+      <text class="static">商标号</text>
+    </view>
+    <view class="detail-item">
+			<view wx:if="{{trademarkInfo.trademarkStatus=='0'}}" class='change'>未公告</view>
+			<view wx:if="{{trademarkInfo.trademarkStatus=='1'}}" class='change'>已初审</view>
+			<view wx:if="{{trademarkInfo.trademarkStatus=='2'}}" class='change'>已注册</view>
+			<view wx:if="{{trademarkInfo.trademarkStatus=='3'}}" class='change'>已无效</view>
+      <text class="static">商标状态</text>
+    </view>
+    <view class="detail-item">
+      <text class="change">{{trademarkInfo.classifyCode}}类</text>
+      <text class="static">商标类别</text>
+    </view>
+  </view>
+  <view class="top-tab">
+    <view class="top-tab-item {{currentTopItem==idx ? 'active' : ''}}" wx:for="{{topTabItems}}" wx:for-index="idx" data-idx="{{idx}}" bindtap="switchTab">{{item.name}}</view>
+  </view>
+  <swiper class="swiper" current="{{currentTopItem}}" bindchange="bindChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+    <swiper-item style="height: 100%;">
+      <scroll-view scroll-y class="content">
+        <view class="lawDate-title">法律日期</view>
+        <view class="lawDate">
+          <view class="moreDate">
+            <view class="dateBefore">商标申请日期</view>
+            <view class="dateAfter">{{trademarkInfo.applicationDate}}</view>
+          </view>
+          <view class="moreDate">
+            <view class="dateBefore">初审公告日期</view>
+            <view class="dateAfter">{{trademarkInfo.announcementDate}}</view>
+          </view>
+          <view class="moreDate">
+            <view class="dateBefore">注册公告日期</view>
+            <view class="dateAfter">{{trademarkInfo.regDate}}</view>
+          </view>
+          <view class="moreDate">
+            <view class="dateBefore">商标注册日期</view>
+            <view class="dateAfter">{{trademarkInfo.tmRegDate}}</view>
+          </view>
+          <view class="moreDate">
+            <view class="dateBefore">注册满3年日期</view>
+            <view class="dateAfter">{{trademarkInfo.threeDate}}</view>
+          </view>
+          <view class="moreDate">
+            <view class="dateBefore">商标截止日期</view>
+            <view class="dateAfter">{{trademarkInfo.tmStopDate}}</view>
+          </view>
+        </view>
+        <view class="lawDate-title">法律角色</view>
+        <view class="lawDate">
+          <view class="lawRole">
+            <view class="applicant">申请人姓名（中文）</view>
+            <view class="applicant-real">{{trademarkInfo.applicationCn}}</view>
+          </view>
+          <view class="lawRole">
+            <view class="applicant">申请人姓名（英文）</view>
+            <view class="applicant-real">{{trademarkInfo.applicationEn}}</view>
+          </view>
+          <view class="lawRole">
+            <view class="applicant">申请人地址（中文）</view>
+            <view class="applicant-real">{{trademarkInfo.addressCn}}</view>
+          </view>
+          <view class="lawRole">
+            <view class="applicant">申请人地址（英文）</view>
+            <view class="applicant-real">{{trademarkInfo.addressEn}}</view>
+          </view>
+          <view class="lawRole">
+            <view class="applicant">代理机构</view>
+            <view class="applicant-real">{{trademarkInfo.agent}}</view>
+          </view>
+        </view>
+        <view class="lawDate-title">法律角色</view>
+        <view class="lawDate">
+          <view class="lawRole">
+            <view class="applicant">注册群组</view>
+            <view class="applicant-real">{{trademarkInfo.secondClassifyCode}}</view>
+          </view>
+          <view class="lawRole">
+            <view class="applicant">注册商品服务</view>
+            <view class="applicant-real">{{trademarkInfo.goods}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+		<swiper-item style="height: 100%;">
+      <scroll-view scroll-y class="content">
+        <view class='flow-table'>
+					<view class='flow-row-first'>
+						<view class='flow-row-title'>申请/注册号</view>
+						<view class='flow-row-title'>环节名称</view>
+						<view class='flow-row-title'>日期</view>
+					</view>
+					<view class='flow-row' wx:for="{{trademarkFlow}}">
+						<view class='flow-row-content'>{{trademarkInfo.regNo}}</view>
+						<view class='flow-row-content'>{{item.businessName}}</view>
+						<view class='flow-row-content'>{{item.flowDate}}</view>
+					</view>
+				</view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item style="height: 100%;">
+      <scroll-view scroll-y class="content">
+        <view class="judge" wx:for="{{similarList}}" wx:for-index="index">
+          <view class="judge-top">
+            <view wx:if="{{item.similarStatus==3}}"style="background-color: #ff4242;font-size: 22rpx;color: white;margin-left: 30rpx;">完全相同</view>
+            <view wx:if="{{item.similarStatus==2}}"style="background-color: #ffa563;font-size: 22rpx;color: white;margin-left: 30rpx;">比较近似</view>
+            <view class="similar-name">{{item.tmName}}</view>
+            <view class="tm-state">已注册</view>
+            <text class="iconfont icon-qianjinxiayige"style="font-size:26rpx;color:#888888;margin:auto 20rpx auto 0"></text>
+          </view>
+          <view class="judge-top">
+            <view class="judge-cls">{{item.classifyCode}}类</view>
+            <view class="judge-regNo">商标号：{{item.regNo}}</view>
+          </view>
+          <view class="judge-top">
+            <view class="judge-applicant">申请人：{{item.applicationCn}}</view>
+          </view>
+          <view class="judge-bottom">
+            <view class="judge-advice">打击建议:</view>
+            <view class="judge-advice-methods">
+              <view class="advice-method">询价购买</view>
+              <!-- <view class="advice-method">发起撤销三年不使用申请</view>
+              <view class="advice-method">发起无效申请公告</view> -->
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="add-bottom">
+  <image src="../../images/add.png" class="img-bottom"></image>
+</view>
+

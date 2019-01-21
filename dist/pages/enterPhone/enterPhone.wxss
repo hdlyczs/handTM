@@ -1,0 +1,62 @@
+@import '../lib/iconfont.wxss';
+
+.top{
+	margin: 64rpx 0 50rpx 18rpx;
+}
+.back{
+	font-size: 38rpx;
+	margin-right: 32rpx;
+}
+.title{
+	font-size: 38rpx;
+}
+.group{
+	margin-top: 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.phone{
+	width: 688rpx;
+	height: 86rpx;
+	border: 1rpx solid #eaeaea;
+	border-radius: 8rpx;
+	box-sizing: border-box;
+	padding: 24rpx 36rpx;
+}
+.phone-placeholder-class{
+	font-size: 34rpx;
+}
+.code{
+	width: 688rpx;
+	height: 86rpx;
+	border: 1rpx solid #eaeaea;
+	border-radius: 8rpx;
+	box-sizing: border-box;
+	padding: 24rpx 36rpx;
+	position: relative;
+	z-index: 2;
+}
+.code-placeholder-class{
+	font-size: 34rpx;
+}
+.time{
+	width: 190rpx;
+	height: 56rpx;
+	border-left: 2rpx solid #eaeaea;
+	position: absolute;
+	left: 528rpx;
+	/* padding-left:28rpx;  */
+	font-size: 34rpx;
+	line-height: 56rpx;
+	cursor: pointer;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.submit{
+	height: 88rpx;
+	width: 690rpx;
+	margin-top: 60rpx;
+}

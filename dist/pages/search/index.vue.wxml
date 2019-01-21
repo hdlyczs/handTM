@@ -1,3 +1,24 @@
+<import src="/components/top.vue.wxml" />
 <template name="697735f5">
-  <view class="_div data-v-78cb5335">1234</view>
+  <view class="_div data-v-78cb5335 wrap">
+    <template data="{{...$root[$kk+'0'], $root}}" is="7713f9ce"></template>
+    <view class="_div data-v-78cb5335 search-box">
+      <view class="_div data-v-78cb5335 search-public keywords">
+        <label class="_span data-v-78cb5335 iconfont icon-public"></label>
+        <input type="text" placeholder="输入欲查询的商标，如“掌标”" class="_input data-v-78cb5335" />
+      </view>
+      <view class="_div data-v-78cb5335 search-public classify">
+        <label class="_span data-v-78cb5335 iconfont icon-public"></label>
+        <label class="_span data-v-78cb5335 tip">选择行业或者商品</label>
+        <label class="_span data-v-78cb5335 iconfont toClassify"></label>
+      </view>
+    </view>
+    <view class="_div data-v-78cb5335 history">
+      <label class="_span data-v-78cb5335">当前商标数据更新至：
+        <label class="_span data-v-78cb5335 nowTime">{{nowTime}}</label>
+      </label>
+      <label class="_span data-v-78cb5335 toHistory">历史记录</label>
+    </view>
+    <view class="_div data-v-78cb5335 confirm">确定</view>
+  </view>
 </template>

@@ -1,0 +1,114 @@
+@import '../lib/iconfont.wxss';
+/**index.wxss**/
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+page{
+	height: 100%;
+	background: #f1f1f1;
+}
+.top{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 64rpx 0 50rpx 18rpx;
+}
+.back{
+	font-size: 38rpx;
+	position: relative;
+	color: white;
+}
+.title{
+	font-size: 38rpx;
+	color: white;
+	margin-left: 28rpx;
+}
+.content {
+  height: 100%;
+	width: 750rpx;
+	background: url(https://qiutm-handtm.oss-cn-beijing.aliyuncs.com/images/lm-personCenter-bg.png)  no-repeat;
+	background-size: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+} 
+.body{
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 0 14rpx 20rpx 18rpx;
+}
+.search-box{
+	width: 718rpx;
+	height: 56rpx;
+	background-color:#fff;
+	box-sizing: border-box;
+	padding: 14rpx 52rpx;
+	border-radius: 8rpx;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.search{
+	height: 28rpx;
+	width: 604rpx;
+	font-size: 26rpx;
+}
+.search-icon{
+	width: 26rpx;
+	height: 26rpx;
+	position: absolute;
+	left: 240rpx;
+	
+}
+.cuo-icon{
+	width: 28rpx;
+	height: 28rpx;
+	position: absolute;
+	right: 12rpx;
+}
+.placeholder-class{
+	font-size: 26rpx;
+	margin-left: 12rpx;
+}
+.body-box{
+	margin: 100rpx 0 0 0;
+	height: 980rpx;
+}
+.body-item{
+	margin: 18rpx 0 0 0;
+	width: 718rpx;
+	border-radius:8rpx;
+	background: white; 
+	box-sizing: border-box;
+	padding: 28rpx 64rpx;
+	position: relative;
+}
+.body-detail-title{
+	font-size: 28rpx;
+	margin-bottom: 20rpx;
+}
+.body-detail-address{
+	font-size: 22rpx;
+	color: #888;
+}
+.body-detail-tmNum{
+	font-size: 22rpx;
+	color: #b2b2b2;
+	margin-top: 8rpx;
+}
+.shichangzhutifazhanzongtiqingkuang{
+	font-size:34rpx; 
+	position: absolute;
+	left: 18rpx;
+	top:28rpx;
+}
+.jia{
+	position: absolute;
+	font-size:50rpx; 
+	color: #b2b2b2;
+	right: 22rpx;
+	top:16rpx;
+}
